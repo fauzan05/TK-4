@@ -3,7 +3,7 @@ session_start();
 require_once 'index.php';
 require_once 'config.php';
 
-$web_host='http://localhost/IT_BSC/template.php';
+$web_host='http://localhost/IT_BSC/dashboard.php';
 
 if(isset($_POST['login'])){
 	if(empty($_POST['username']) || empty($_POST['password']))	{

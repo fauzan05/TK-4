@@ -150,7 +150,7 @@ IT BALANCED SCORECARD">
 								header('Location: http://localhost/TK-4/lihatdimensi.php');
 								
                             }else if(isset($_POST['cancel'])){
-								header('Location: http://localhost/TK-4/template.php');
+								header('Location: http://localhost/TK-4/dashboard.php');
 							}
                             ?>
 					</div>
