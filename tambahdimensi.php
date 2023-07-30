@@ -97,8 +97,6 @@ IT BALANCED SCORECARD">
 			<?php include "sidebar.php"; ?>
 			
 			
-			
-			
 			<!-- start: Content -->
 			<div id="content" class="span10">
 			
@@ -140,7 +138,7 @@ IT BALANCED SCORECARD">
 
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary" name="simpan">Save changes</button>
-								<button class="btn">Cancel</button>
+								<button class="btn" name="cancel">Cancel</button>
 							  </div>
 							</fieldset>
 						  </form>
@@ -148,10 +146,12 @@ IT BALANCED SCORECARD">
                             if (isset($_POST['simpan'])) {
                                 $dimensi = $_POST['dimensi'];
                                 $bobot = $_POST['bobot'];
-
-                                mysql_query("insert into tbdimensi (dimensi,bobot) values ('$dimensi',$bobot)") or die(mysql_error());
-                                header('location:tambahdimensi.php');
-                            }
+                                $stmt = mysqli_query($koneksi, "INSERT INTO tbdimensi (dimensi,bobot) VALUES ('$dimensi','$bobot')");
+								header('Location: http://localhost/IT_BSC/lihatdimensi.php');
+								
+                            }else if(isset($_POST['cancel'])){
+								header('Location: http://localhost/IT_BSC/template.php');
+							}
                             ?>
 					</div>
 				</div><!--/span-->
@@ -259,6 +259,10 @@ IT BALANCED SCORECARD">
 
 		<script src="js/custom.js"></script>
 	<!-- end: JavaScript-->
+	<?php
+		$output = ob_get_clean();
+		echo $output;
+	?>
 	
 </body>
 </html>
