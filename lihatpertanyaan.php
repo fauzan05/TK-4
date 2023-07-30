@@ -127,9 +127,9 @@ IT BALANCED SCORECARD">
 						  </thead>   
 						  <tbody>
 						  	 <?php
-								$query = mysql_query("select pertanyaan,variabel from tbkuesioner") or die(mysql_error());
+								$query = mysqli_query($koneksi, "select pertanyaan,variabel from tbkuesioner") or die(mysqli_error($koneksi));
 								$j=0;
-								while ($row = mysql_fetch_array($query)) {
+								while ($row = mysqli_fetch_array($query)) {
 									$j++;
                                
                                 ?>

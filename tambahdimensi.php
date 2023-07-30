@@ -147,10 +147,10 @@ IT BALANCED SCORECARD">
                                 $dimensi = $_POST['dimensi'];
                                 $bobot = $_POST['bobot'];
                                 $stmt = mysqli_query($koneksi, "INSERT INTO tbdimensi (dimensi,bobot) VALUES ('$dimensi','$bobot')");
-								header('Location: http://localhost/IT_BSC/lihatdimensi.php');
+								header('Location: http://localhost/TK-4/lihatdimensi.php');
 								
                             }else if(isset($_POST['cancel'])){
-								header('Location: http://localhost/IT_BSC/template.php');
+								header('Location: http://localhost/TK-4/template.php');
 							}
                             ?>
 					</div>

@@ -107,10 +107,10 @@ IT BALANCED SCORECARD">
 				</ul>
 
 						<?php
-							$hasil=mysql_query("select * from tbkuesioner order by id_kuesioner");
-							$jumlah=mysql_num_rows($hasil);
+							$hasil=mysqli_query($koneksi, "select * from tbkuesioner order by id_kuesioner");
+							$jumlah=mysqli_num_rows($hasil);
 							$urut=0;
-							while($row =mysql_fetch_array($hasil))
+							while($row =mysqli_fetch_array($hasil))
 							{
 								$urut=$urut+1;
 								$id_kuesioner=$row["id_kuesioner"];
@@ -179,7 +179,7 @@ IT BALANCED SCORECARD">
 	</div><!--/row-->	
 <?php 
                if (isset($_POST['submit'])) {
-                	mysql_query("DELETE FROM jawaban where username='$session_id'");
+                	mysqli_query($koneksi, "DELETE FROM jawaban where username='$session_id'");
 						$pilihan=$_POST["pilihan"];
 						$id_kuesioner=$_POST["id"];
 						$jumlah=$_POST['jumlah'];
@@ -205,9 +205,9 @@ IT BALANCED SCORECARD">
 							$jawaban=$pilihan[$nomor];
 							
 							}
-						mysql_query("insert into jawaban (id_kuesioner,jawaban,username)
+						mysqli_query($koneksi, "insert into jawaban (id_kuesioner,jawaban,username)
 								values ('$nomor','$jawaban','$session_id')                                    
-								") or die(mysql_error());   
+								") or die(mysqli_error($koneksi));   
 					}
 
 					              

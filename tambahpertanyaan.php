@@ -137,8 +137,8 @@ IT BALANCED SCORECARD">
 								  <select id="iddimensi" data-rel="chosen" name="iddimensi">
 									<option></option>
 									<?php 
-                                        $query=mysql_query("select * from tbdimensi");
-                                        while($row=mysql_fetch_array($query)){
+                                        $query=mysqli_query($koneksi, "select * from tbdimensi");
+                                        while($row=mysqli_fetch_array($query)){
                                     ?>
                                     <option value="<?php echo $row['id_dimensi'];?>"><?php echo $row['dimensi']; ?></option>
                                     <?php
@@ -229,8 +229,8 @@ IT BALANCED SCORECARD">
 								$pile = $_POST['pile'];
 
 
-                                mysql_query("insert into tbkuesioner (pertanyaan,id_dimensi,variabel,pila,pilb,pilc,pild,pile) 
-                                	values ('$pertanyaan',$iddimensi,'$variabel','$pila','$pilb','$pilc','$pild','$pile')") or die(mysql_error());
+                                mysqli_query($koneksi, "insert into tbkuesioner (pertanyaan,id_dimensi,variabel,pila,pilb,pilc,pild,pile) 
+                                	values ('$pertanyaan',$iddimensi,'$variabel','$pila','$pilb','$pilc','$pild','$pile')") or die(mysqli_error($koneksi));
                                 header('location:tambahpertanyaan.php');
                             }
                             ?>
